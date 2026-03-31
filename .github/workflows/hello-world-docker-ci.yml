@@ -18,5 +18,13 @@ jobs:
         with:
           who-to-greet: '@anotherRedbeard'
 
+      - name: Run my own container action
+        id: hello-action2
+        uses: anotherRedbeard/hello-world-docker-action@v1
+        with:
+          who-to-greet: '@anotherRedbeard'
+
       - name: Output time set in the container
         run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action said hello"
+      - name: Output time set in the container2
+        run: echo "The time was ${{ steps.hello-action2.outputs.time }} when the action said hello"
